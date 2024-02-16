@@ -1,0 +1,27 @@
+{
+  "name": "blvd_homework",
+  "version": "1.0.0",
+  "description": "CMSI 3802 homework repo for team blvd",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kimberly-Kubo/blvd_homework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kimberly-Kubo/blvd_homework/issues"
+  },
+  "homepage": "https://github.com/Kimberly-Kubo/blvd_homework#readme",
+  "devDependencies": {
+    "mocha": "^10.3.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "ohm-js": "^17.1.0"
+  }
+}
