@@ -3,9 +3,9 @@ import * as ohm from "ohm-js";
 export function matches(name, s) {
   const grammars = {
     canadianPostalCode: String.raw` G {
-      code                  = postalLetterFirst digit postalLetter " " digit postalLetter digit
-      postalLetter          = ~("D"|"F"|"I"|"O"|"Q") "A".."Z"
-      postalLetterFirst     = ~("W"|"Z") postalLetter    
+      code                = postalLetterFirst digit postalLetter " " digit postalLetter digit
+      postalLetter        = ~("D"|"F"|"I"|"O"|"Q") "A".."Z"
+      postalLetterFirst   = ~("W"|"Z") postalLetter    
     }`,
     visa: String.raw`G {
       num                 = "4" d d d d d d d d d d d d additionalNum?

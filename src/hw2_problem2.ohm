@@ -1,33 +1,33 @@
 Problem2 {
     Program     = FunDec* Exp
-    FunDec		= func id "(" ListOf<id, ","> ")" Body
-    Body		= NonemptyListOf<Exp, ";"> endKW
+    FunDec      = func id "(" ListOf<id, ","> ")" Body
+    Body        = NonemptyListOf<Exp, ";"> endKW
     
     Exp         = Exp1 if Exp1 else Exp             --Conditional
-    			| Exp1
-    Exp1		= Exp1 ("+" | "-") Exp2             --AddSub
-    			| Exp2
-    Exp2		= Exp2 ("*" | "/" | "%") Exp3       --MulDivMod
-    			| Exp3
-    Exp3		= "-"? Exp4
-    Exp4		= Exp5 "!"?
-    Exp5		= Call | Parens | num | id | strLit
+                | Exp1
+    Exp1        = Exp1 ("+" | "-") Exp2             --AddSub
+                | Exp2
+    Exp2        = Exp2 ("*" | "/" | "%") Exp3       --MulDivMod
+                | Exp3
+    Exp3        = "-"? Exp4
+    Exp4        = Exp5 "!"?
+    Exp5        = Call | Parens | num | id | strLit
 
-    Call		= id "[" Args "]"
-    Parens		= "(" Exp ")"
-    Args		= ListOf<Exp, ",">
+    Call        = id "[" Args "]"
+    Parens      = "(" Exp ")"
+    Args        = ListOf<Exp, ",">
     
     keyword     = if | else | func | endKW
     if          = "if" ~idchar
-    else		= "else" ~idchar
-    func		= "func" ~idchar
-    endKW		= "end" ~idchar
-    num 		= digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
+    else        = "else" ~idchar
+    func        = "func" ~idchar
+    endKW       = "end" ~idchar
+    num         = digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
     id          = ~keyword (letter | "@") idchar*
-    idchar		= alnum | "-" | "@" | "$"
-    strLit		= "\"" content* "\""
+    idchar      = alnum | "-" | "@" | "$"
+    strLit      = "\"" content* "\""
     content     = strEscSeq | stringChar
-    			| "\\u{" h h? h? h? h? h? "}"       --Hex
+                | "\\u{" h h? h? h? h? h? "}"       --Hex
     strEscSeq   = "\\'" | "\\\"" | "\\n" | "\\\\" 
     stringChar  = ~"\"" any
     comment     = "--" (~"\n" any)*
